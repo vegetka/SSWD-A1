@@ -7,3 +7,6 @@
 7. * PHP Code
 8. / Overall Design
 9. / Naming
+
+Wikipedia DB source (with related links): 
+https://en.wikipedia.org/wiki/List_of_urban_areas_in_the_Republic_of_Ireland_by_population

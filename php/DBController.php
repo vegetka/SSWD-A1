@@ -1,4 +1,6 @@
 <?php
+
+class DBController{
     private $query;
     private $connection;
 
@@ -15,4 +17,5 @@
             echo $row["user_id"]." | ".$row["answer"]." | ".$row["guessed_on"]."<br>";
         }
     }
+}
 ?>
