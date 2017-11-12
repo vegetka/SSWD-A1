@@ -9,12 +9,14 @@ class DBController{
     }
 
     function getAllRecords(){
-        $this->query = "SELECT * FROM correct_guesses" or die(mysqli_error($this->myConnection));
+        $this->query = "SELECT * FROM towns" or die(mysqli_error($this->connection));
 
-        $result = $this->myConnection->query($this->query);
+        $result = $this->connection->query($this->query);
+
+        echo "Town | Province | Population | Est. <br>";
 
         while($row = mysqli_fetch_array($result)){
-            echo $row["user_id"]." | ".$row["answer"]." | ".$row["guessed_on"]."<br>";
+            echo $row["name"] . " | " . $row["province"]. " | " . $row["population"] . " | " . $row["established"] . "<br>";
         }
     }
 }
