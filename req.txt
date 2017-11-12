@@ -1,9 +1,9 @@
-1. OOP/OOD
-2. DB
-3. SQL setup file 
-4. 1st API Endpoint
-5. 2nd API Endpoint
-6. JSON Output
-7. PHP Code
-8. Overall Design
-9. Naming
+1.   OOP/OOD
+2. * DB 
+3.   SQL setup file 
+4.   1st API Endpoint
+5.   2nd API Endpoint
+6.   JSON Output
+7. * PHP Code
+8. / Overall Design
+9. / Naming
