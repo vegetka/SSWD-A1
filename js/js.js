@@ -4,11 +4,20 @@ function go(){
 
     $('#get').click(function(){
         console.log("clicky");
+        $.get("php/app.php", { getThis: "some text" })
+            .done(function(data){
+                $("body").append(data);
+                console.log("php return: " + data);
+            });
+        console.log("after get");
+     /*
     $.ajax({
         type: "GET",
-        url: "php/app.php",
-        data: {123: "456"}
+        url: "php/get.php",
+        data: { getThis: "456"}
+
     });
+    */
 });
 
 }
