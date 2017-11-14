@@ -17,12 +17,17 @@
     // debugger
     function l($s){echo "<script>console.log('" . $s . "')</script>";}
 
-    $getTest = $_GET["towns"];
+    $get = $_GET["towns"];
 
-    if($getTest == "\"all\""){
+    if($get == "\"all\""){
         echo $database->getAllRecords();
+    }else if($get == "\"name\""){
+        echo $database->getNameSorted();
+    }else if($get == "\"est\""){
+        echo $database->getEstSorted();
     }else{
-        echo $getTest;
+        return "wtf";
+        //echo "No such thing";
     }
 
 ?>

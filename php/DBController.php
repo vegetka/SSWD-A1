@@ -13,9 +13,41 @@ class DBController{
 
         $result = $this->connection->query($this->query);
 
-        echo "Town | Province | Population | Est. <br>";
+        echo "Irish Towns Sorted By Population";
 
-        while($row = mysqli_fetch_array($result)){
+        $this->getResults($result);
+
+    }
+
+    function getNameSorted(){
+        $this->query = "SELECT * FROM towns ORDER BY name ASC" or die(mysqli_error($this->connection));
+
+        $result = $this->connection->query($this->query);
+
+        echo "Irish Towns Sorted By Name";
+
+        $this->getResults($result);
+
+    }
+
+    function getEstSorted(){
+        $this->query = "SELECT * FROM towns ORDER BY established ASC" or die(mysqli_error($this->connection));
+
+        $result = $this->connection->query($this->query);
+
+        echo "Irish Towns Sorted By Est. Date";
+
+        $this->getResults($result);
+
+    }
+
+    function getResults($result){
+
+        echo "<br>-----------------------------------------";
+        echo "<br> Town | Province | Population | Est. <br>";
+        echo "-----------------------------------------<br>";
+
+         while($row = mysqli_fetch_array($result)){
             echo $row["name"] . " | " . $row["province"]. " | " . $row["population"] . " | " . $row["established"] . "<br>";
         }
     }
