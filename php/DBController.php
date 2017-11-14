@@ -13,7 +13,7 @@ class DBController{
 
         $result = $this->connection->query($this->query);
 
-        echo "Irish Towns Sorted By Population";
+        echo "Irish Towns";
 
         $this->getResults($result);
 
@@ -38,6 +38,13 @@ class DBController{
         echo "Irish Towns Sorted By Est. Date";
 
         $this->getResults($result);
+
+    }
+
+    function getJSON(){
+        $this->query = "SELECT * FROM towns" or die(mysqli_error($this->connection));
+
+        $result = $this->connection->query($this->query);
 
     }
 
