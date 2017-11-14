@@ -12,19 +12,17 @@
     // connect to a database
     $database = new DBController($host, $userName, $password, $dbName);
     // use a database
-    $database->getAllRecords();
+
 
     // debugger
     function l($s){echo "<script>console.log('" . $s . "')</script>";}
 
-     $getTest = $_GET["getThis"];
+    $getTest = $_GET["towns"];
 
-    $s = "something else";
-    $s = strtoupper($s);
-    if($getTest == "\"omg\""){
-        echo strtoupper($getTest);
+    if($getTest == "\"all\""){
+        echo $database->getAllRecords();
     }else{
-        echo $s . $getTest;
+        echo $getTest;
     }
 
 ?>
