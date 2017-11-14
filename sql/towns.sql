@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 12, 2017 at 03:10 PM
+-- Generation Time: Nov 14, 2017 at 05:24 PM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.8
 
@@ -48,7 +48,11 @@ INSERT INTO `towns` (`id`, `name`, `irish_name`, `province`, `population`, `esta
 (4, 'Galway', 'Gaillimh', 'Connacht', 79934, 1124),
 (5, 'Waterford', 'Port Láirge', 'Munster', 53504, 914),
 (6, 'Drogheda', 'Droichead Átha', 'Leinster', 40956, 911),
-(7, 'Swords', 'Sord', 'Leinster', 39248, 560);
+(7, 'Swords', 'Sord', 'Leinster', 39248, 560),
+(8, 'Dundalk', 'Dún Dealgan', 'Leinster', 39004, 1189),
+(9, 'Bray', 'Bré', 'Leinster', 32600, 1598),
+(10, 'Navan', 'Uaimh', 'Leinster', 30173, 1172),
+(11, 'Cobh', 'an Cóbh', 'Munster', 12800, 1743);
 
 --
 -- Indexes for dumped tables
@@ -68,7 +72,7 @@ ALTER TABLE `towns`
 -- AUTO_INCREMENT for table `towns`
 --
 ALTER TABLE `towns`
-  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;COMMIT;
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
