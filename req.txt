@@ -1,4 +1,4 @@
-1.   OOP/OOD
+1. * OOP/OOD
 2. * DB 
 3. * SQL setup file 
 4.   1st API Endpoint

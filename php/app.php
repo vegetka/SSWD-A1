@@ -27,6 +27,10 @@
         echo $database->getNameSorted();
     }else if($get == "\"est\""){
         echo $database->getEstSorted();
+    }else if($get == "\"json\""){
+        echo $database->getJSON();
+    }else if($get == "\"download\""){
+        echo $database->downloadJSON();
     }else{
         // if none parameter valid, show welcome screen
         welcome();
@@ -40,12 +44,16 @@
         echo "<br>";
         echo "Provided database: 11 Irish Towns with some stats";
         echo "<br><br>";
+        echo "<a href='http://localhost/sswda1/php/app.php?towns=%22json%22'>Show JSON</a>";
+        echo "<br>";
+        echo "<a href='http://localhost/sswda1/php/app.php?towns=%22download%22'>Download JSON</a>";
+        echo "<br><br>";
         echo "<a href='http://localhost/sswda1/php/app.php?towns=%22all%22'>All Database Records</a>";
         echo "<br>";
         echo "<a href='http://localhost/sswda1/php/app.php?towns=%22name%22'>Records Sorted by Name</a>";
         echo "<br>";
         echo "<a href='http://localhost/sswda1/php/app.php?towns=%22est%22'>Records Sorted by Est</a>";
-
+        echo "<br><br>";
     }
 
 

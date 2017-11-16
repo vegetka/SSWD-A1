@@ -52,7 +52,42 @@ class DBController{
         // post query, receive result
         $result = $this->connection->query($this->query);
         // Working variable
-        $json = "";
+        $json = array();
+        // build JSON
+        while($row = mysqli_fetch_array($result)){
+            $json[] = array("name"        => $row["name"],
+                            "province"    => $row["province"],
+                            "population"  => $row["population"],
+                            "established" => $row["established"]
+                           );
+        }
+
+        // show JSON
+        echo json_encode($json);
+
+
+    }
+
+    function downloadJSON(){
+        // create query
+        $this->query = "SELECT * FROM towns" or die(mysqli_error($this->connection));
+        // post query, receive result
+        $result = $this->connection->query($this->query);
+        // Working variable
+        $json = array();
+        // build JSON
+        while($row = mysqli_fetch_array($result)){
+            $json[] = array("name"        => $row["name"],
+                            "province"    => $row["province"],
+                            "population"  => $row["population"],
+                            "established" => $row["established"]
+                           );
+        }
+
+        //prepare JSON do download
+        header('Content-disposition: attachment; filename=file.json');
+        header('Content-type: application/json');
+        echo json_encode($json);
 
 
     }
