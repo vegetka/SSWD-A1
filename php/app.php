@@ -36,7 +36,6 @@
         welcome();
     }
 
-
     // Welcome page
     function welcome(){
         echo "<h1>SSWD Assessment 1</h1>";
@@ -55,7 +54,6 @@
         echo "<a href='http://localhost/sswda1/php/app.php?towns=%22est%22'>Records Sorted by Est</a>";
         echo "<br><br>";
     }
-
 
     // debugger
     function l($s){echo "<script>console.log('" . $s . "')</script>";}

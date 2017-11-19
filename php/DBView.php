@@ -32,6 +32,7 @@ class DBView{
         }
 
     }
+
     // show 'table'
     function readData($data){
         // tables header
@@ -43,6 +44,7 @@ class DBView{
             echo $row["name"] . " | " . $row["province"]. " | " . $row["population"] . " | " . $row["established"] . "<br>";
         }
     }
+
     // make JSON from database fields
     function makeJSON($type, $data){
         // Working variable

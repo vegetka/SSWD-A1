@@ -23,6 +23,7 @@ class DBController{
         // create Results Viewer object
         $this->result = new DBView();
     }
+
     // get all records from database and display them
     function getAllRecords(){
         // create query
@@ -32,6 +33,7 @@ class DBController{
         // generate 'table'
         $this->result->show($this->all, $data);
     }
+
     // get all records from database and display them sorted by name
     function getNameSorted(){
         // create query
@@ -41,6 +43,7 @@ class DBController{
         // generate 'table'
         $this->result->show($this->name, $data);
     }
+
     // get all records from database and display them sorted by establish date
     function getEstSorted(){
         // create query
@@ -50,6 +53,7 @@ class DBController{
         // generate 'table'
         $this->result->show($this->est, $data);
     }
+
     // get all records from database and display them as JSON
     function getJSON(){
         // create query
@@ -59,6 +63,7 @@ class DBController{
         // generate JSON
         $this->result->show($this->json, $data);
     }
+
     // get all records from database, make JSON and download as a file
     function downloadJSON(){
         // create query
