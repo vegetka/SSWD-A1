@@ -69,7 +69,7 @@ class DBController{
         // create query
         $this->query = "SELECT * FROM towns" or die(mysqli_error($this->connection));
         // post query, receive result
-        $result = $this->connection->query($this->query);
+        $data = $this->connection->query($this->query);
         // generate JSON
         $this->result->show($this->down, $data);
     }
