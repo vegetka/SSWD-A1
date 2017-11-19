@@ -1,49 +1,48 @@
 <?php
 
+    // imports
+    include('ShowResults.php');
+
 class DBController{
+
+    // variables
     private $query;
     private $connection;
+    private $result;
 
     // class constructor
     function __construct($host, $userName, $password, $dbName){
         // make a database connection using provided details
         $this->connection = mysqli_connect($host, $userName, $password, $dbName);
+        // create Results object
+        $this->result = new ShowResults();
     }
 
     function getAllRecords(){
         // create query
         $this->query = "SELECT * FROM towns" or die(mysqli_error($this->connection));
         // post query, receive result
-        $result = $this->connection->query($this->query);
-        // show title
-        echo "Irish Towns";
+        $data = $this->connection->query($this->query);
         // generate 'table'
-        $this->getResults($result);
-
+        $this->result->all($data);
     }
 
     function getNameSorted(){
         // create query
         $this->query = "SELECT * FROM towns ORDER BY name ASC" or die(mysqli_error($this->connection));
         // post query, receive result
-        $result = $this->connection->query($this->query);
-        // show title
-        echo "Irish Towns Sorted By Name";
+        $data = $this->connection->query($this->query);
         // generate 'table'
-        $this->getResults($result);
-
+        $this->result->name($data);
     }
 
     function getEstSorted(){
         // create query
         $this->query = "SELECT * FROM towns ORDER BY established ASC" or die(mysqli_error($this->connection));
         // post query, receive result
-        $result = $this->connection->query($this->query);
-        // show title
-        echo "Irish Towns Sorted By Est. Date";
+        $data = $this->connection->query($this->query);
         // generate 'table'
-        $this->getResults($result);
-
+        $this->result->est($data);
     }
 
     function getJSON(){
@@ -89,18 +88,6 @@ class DBController{
         header('Content-type: application/json');
         echo json_encode($json);
 
-
-    }
-
-    function getResults($result){
-
-        echo "<br>-----------------------------------------";
-        echo "<br> Town | Province | Population | Est. <br>";
-        echo "-----------------------------------------<br>";
-
-         while($row = mysqli_fetch_array($result)){
-            echo $row["name"] . " | " . $row["province"]. " | " . $row["population"] . " | " . $row["established"] . "<br>";
-        }
     }
 }
 
