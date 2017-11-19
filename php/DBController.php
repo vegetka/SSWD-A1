@@ -9,12 +9,16 @@ class DBController{
     private $query;
     private $connection;
     private $result;
+    // failed on enum :/
+    private $all = 1;
+    private $name = 2;
+    private $est  = 3;
 
     // class constructor
     function __construct($host, $userName, $password, $dbName){
         // make a database connection using provided details
         $this->connection = mysqli_connect($host, $userName, $password, $dbName);
-        // create Results object
+        // create Results Viewer object
         $this->result = new DBView();
     }
 
@@ -24,7 +28,7 @@ class DBController{
         // post query, receive result
         $data = $this->connection->query($this->query);
         // generate 'table'
-        $this->result->all($data);
+        $this->result->show($this->all, $data);
     }
 
     function getNameSorted(){
@@ -33,7 +37,7 @@ class DBController{
         // post query, receive result
         $data = $this->connection->query($this->query);
         // generate 'table'
-        $this->result->name($data);
+        $this->result->show($this->name, $data);
     }
 
     function getEstSorted(){
@@ -42,7 +46,7 @@ class DBController{
         // post query, receive result
         $data = $this->connection->query($this->query);
         // generate 'table'
-        $this->result->est($data);
+        $this->result->show($this->est, $data);
     }
 
     function getJSON(){

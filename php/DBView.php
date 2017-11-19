@@ -2,26 +2,29 @@
 
 class DBView{
 
-    // show all results
-    function all($data){
-        // show title
-        echo "Irish Towns";
-        // iterate data
-        $this->readData($data);
-    }
+    // show results
+    function show($type, $data){
+        switch($type){
+            case 1:
+                // show title
+                echo "Irish Towns";
+                break;
+            case 2:
+                // show title
+                echo "Irish Towns Sorted By Name";
+                break;
+            case 3:
+                // show title
+                echo "Irish Towns Sorted By Est. Date";
+                break;
+        }
 
-    function name($data){
-        // show title
-        echo "Irish Towns Sorted By Name";
-        // iterate data
-        $this->readData($data);
-    }
+        // if it's db read
+        if($type <= 3){
+            // iterate data
+            $this->readData($data);
+        }
 
-    function est($data){
-        // show title
-        echo "Irish Towns Sorted By Est. Date";
-        // iterate data
-        $this->readData($data);
     }
 
     function readData($data){
