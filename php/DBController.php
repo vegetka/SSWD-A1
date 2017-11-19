@@ -1,7 +1,7 @@
 <?php
 
     // imports
-    include('ShowResults.php');
+    include('DBView.php');
 
 class DBController{
 
@@ -15,7 +15,7 @@ class DBController{
         // make a database connection using provided details
         $this->connection = mysqli_connect($host, $userName, $password, $dbName);
         // create Results object
-        $this->result = new ShowResults();
+        $this->result = new DBView();
     }
 
     function getAllRecords(){
