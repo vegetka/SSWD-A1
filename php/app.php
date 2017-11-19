@@ -2,7 +2,6 @@
     // imports
     include('DBController.php');
 
-    l("app start");
     // Database parameters and object
     $host     = "localhost";
     $userName = "root";
