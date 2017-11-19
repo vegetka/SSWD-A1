@@ -10,9 +10,11 @@ class DBController{
     private $connection;
     private $result;
     // failed on enum :/
-    private $all = 1;
+    private $all  = 1;
     private $name = 2;
     private $est  = 3;
+    private $json = 4;
+    private $down = 5;
 
     // class constructor
     function __construct($host, $userName, $password, $dbName){
@@ -21,7 +23,7 @@ class DBController{
         // create Results Viewer object
         $this->result = new DBView();
     }
-
+    // get all records from database and display them
     function getAllRecords(){
         // create query
         $this->query = "SELECT * FROM towns" or die(mysqli_error($this->connection));
@@ -30,7 +32,7 @@ class DBController{
         // generate 'table'
         $this->result->show($this->all, $data);
     }
-
+    // get all records from database and display them sorted by name
     function getNameSorted(){
         // create query
         $this->query = "SELECT * FROM towns ORDER BY name ASC" or die(mysqli_error($this->connection));
@@ -39,7 +41,7 @@ class DBController{
         // generate 'table'
         $this->result->show($this->name, $data);
     }
-
+    // get all records from database and display them sorted by establish date
     function getEstSorted(){
         // create query
         $this->query = "SELECT * FROM towns ORDER BY established ASC" or die(mysqli_error($this->connection));
@@ -48,50 +50,23 @@ class DBController{
         // generate 'table'
         $this->result->show($this->est, $data);
     }
-
+    // get all records from database and display them as JSON
     function getJSON(){
         // create query
         $this->query = "SELECT * FROM towns" or die(mysqli_error($this->connection));
         // post query, receive result
-        $result = $this->connection->query($this->query);
-        // Working variable
-        $json = array();
-        // build JSON
-        while($row = mysqli_fetch_array($result)){
-            $json[] = array("name"        => $row["name"],
-                            "province"    => $row["province"],
-                            "population"  => $row["population"],
-                            "established" => $row["established"]
-                           );
-        }
-
-        // show JSON
-        echo json_encode($json);
-
-
+        $data = $this->connection->query($this->query);
+        // generate JSON
+        $this->result->show($this->json, $data);
     }
-
+    // get all records from database, make JSON and download as a file
     function downloadJSON(){
         // create query
         $this->query = "SELECT * FROM towns" or die(mysqli_error($this->connection));
         // post query, receive result
         $result = $this->connection->query($this->query);
-        // Working variable
-        $json = array();
-        // build JSON
-        while($row = mysqli_fetch_array($result)){
-            $json[] = array("name"        => $row["name"],
-                            "province"    => $row["province"],
-                            "population"  => $row["population"],
-                            "established" => $row["established"]
-                           );
-        }
-
-        //prepare JSON do download
-        header('Content-disposition: attachment; filename=file.json');
-        header('Content-type: application/json');
-        echo json_encode($json);
-
+        // generate JSON
+        $this->result->show($this->down, $data);
     }
 }
 
