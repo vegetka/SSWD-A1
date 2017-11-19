@@ -1,6 +1,6 @@
 <?php
 
-class ShowResults{
+class DBView{
 
     // show all results
     function all($data){
